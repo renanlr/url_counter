@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
+require "httparty"
+require "nokogiri"
+require "uri"
 require "byebug"
 
-require "url_counter"
+require "url_counter/version"
+require "url_counter/http"
+require "url_counter/parser"
+require "url_counter/fetch"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -15,11 +15,11 @@ RSpec.describe "UrlCounter::Fetch" do
 
   context "#call" do
     it "returns the correct number of assets" do
-      expect(subject.assets.size).to eq(google_body_assets_size)
+      expect(subject[:assets].size).to eq(google_body_assets_size)
     end
 
     it "returns the correct number of assets" do
-      expect(subject.links.size).to eq(google_body_links_size)
+      expect(subject[:links].size).to eq(google_body_links_size)
     end
   end
 end
