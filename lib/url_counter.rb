@@ -2,10 +2,12 @@
 
 require 'httparty'
 require 'nokogiri'
+require 'uri'
 
 require "url_counter/version"
 require "url_counter/http"
 require "url_counter/parser"
+require "url_counter/fetch"
 
 module UrlCounter
   class Error < StandardError; end
