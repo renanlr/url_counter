@@ -12,5 +12,5 @@ RuboCop::RakeTask.new
 task default: %i[spec rubocop]
 
 task :run do
-  ruby 'lib/url_counter.rb'
+  ruby "lib/url_counter.rb"
 end

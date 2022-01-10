@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-require_relative "url_counter/version"
+require "httparty"
+
+require "url_counter/version"
+require "url_counter/http"
 
 module UrlCounter
   class Error < StandardError; end
