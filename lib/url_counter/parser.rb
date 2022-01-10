@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module UrlCounter
+  # Service to parse html
   class Parser
     def initialize(html)
       @html = html

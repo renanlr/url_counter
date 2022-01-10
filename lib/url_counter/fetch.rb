@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module UrlCounter
+  # Service responsible to orchestrate calls and format response
   class Fetch
     def initialize(url:)
       @url = url
@@ -12,7 +13,9 @@ module UrlCounter
       format_response(tags)
     end
 
-    private def format_response(tags)
+    private
+
+    def format_response(tags)
       assets = tags.select { |el| el.name == "img" }
                    .map { |el| get_url_from_img_tag(el) }
                    .select { |el| valid_url?(el) }
@@ -26,15 +29,15 @@ module UrlCounter
       }
     end
 
-    private def get_url_from_a_tag(element)
+    def get_url_from_a_tag(element)
       element.attributes["href"]&.value
     end
 
-    private def get_url_from_img_tag(element)
+    def get_url_from_img_tag(element)
       element.attributes["src"]&.value
     end
 
-    private def valid_url?(url)
+    def valid_url?(url)
       url =~ /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/
     end
   end

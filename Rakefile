@@ -12,7 +12,7 @@ RuboCop::RakeTask.new
 
 task default: %i[spec rubocop]
 
-task :run, [:url] do |_t, args|
+task :run, [:url] do |_t|
   options = {}
   opts = OptionParser.new
   opts.banner = "Usage: rake run [options]"

@@ -9,6 +9,7 @@ require_relative "url_counter/http"
 require_relative "url_counter/parser"
 require_relative "url_counter/fetch"
 
+# Entry point for UrlCounter::Fetch
 module UrlCounter
   warn "You need to provide a URL" if ARGV.empty?
 
