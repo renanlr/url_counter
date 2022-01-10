@@ -13,10 +13,10 @@ module UrlCounter
     end
 
     private def format_response(tags)
-      assets = tags.select { |el| el.name == 'img' }
+      assets = tags.select { |el| el.name == "img" }
                    .map { |el| get_url_from_img_tag(el) }
                    .select { |el| valid_url?(el) }
-      links = tags.select { |el| el.name == 'a' }
+      links = tags.select { |el| el.name == "a" }
                   .map { |el| get_url_from_a_tag(el) }
                   .select { |el| valid_url?(el) }
 
@@ -27,15 +27,15 @@ module UrlCounter
     end
 
     private def get_url_from_a_tag(element)
-      element.attributes['href']&.value
+      element.attributes["href"]&.value
     end
 
     private def get_url_from_img_tag(element)
-      element.attributes['src']&.value
+      element.attributes["src"]&.value
     end
 
     private def valid_url?(url)
-      url =~ /\A#{URI::regexp(%w[http https])}\z/
+      url =~ /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/
     end
   end
 end

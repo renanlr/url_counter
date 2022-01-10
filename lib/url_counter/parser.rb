@@ -8,7 +8,7 @@ module UrlCounter
 
     def call
       doc = Nokogiri::HTML(@html)
-      doc.xpath('//a', '//img')
+      doc.xpath("//a", "//img")
     end
   end
 end
