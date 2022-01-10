@@ -20,7 +20,6 @@ module UrlCounter
                   .map { |el| get_url_from_a_tag(el) }
                   .select { |el| valid_url?(el) }
 
-      byebug
       {
         assets: assets,
         links: links

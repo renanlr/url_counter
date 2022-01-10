@@ -4,20 +4,19 @@ require 'httparty'
 require 'nokogiri'
 require 'uri'
 
-require "url_counter/version"
-require "url_counter/http"
-require "url_counter/parser"
-require "url_counter/fetch"
+require_relative "url_counter/version"
+require_relative "url_counter/http"
+require_relative "url_counter/parser"
+require_relative "url_counter/fetch"
 
 module UrlCounter
-  class Error < StandardError; end
 
-  def fetch(url)
-
+  if ARGV.empty?
+    STDERR.puts "You need to provide a URL"
   end
 
-  private def get_url_from_element(element)
-    return { link: element.attributes['href']&.value, tag: 'a' } if element.name == 'a'
-    { link: element.attributes['src']&.value, tag: 'img' } if element.name == 'img'
-  end
+  url = ARGV[0]
+  response = UrlCounter::Fetch.new(url: url).call
+
+  puts response
 end
